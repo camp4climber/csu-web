@@ -37,7 +37,7 @@
             </form>
         </div>
         <div id="main">
-            <h1>users/joe_user.html</h1>
+        <div class="section">
             User Info
             <ul id="user_info">
                 <li>username: joe_user</li>
@@ -45,30 +45,59 @@
                 <li>first name: Joe</li>
                 <li>last name: User</li>
             </ul>
-            Bookmarks
-            <ul id="bookmarks">
-                <li>thumbnail - url - desc</li>
-                <li>thumbnail - url - desc</li>
-                <li>thumbnail - url - desc</li>
-                <li>thumbnail - url - desc</li>
-                <li>thumbnail - url - desc</li>
-            </ul>
-            Following
-            <ul id="following">
-                <li>big apple macintosh</li>
-                <li>billy bob</li>
-                <li>joe jackson</li>
-                <li>...</li>
+            <a href="../users/edit.html">Edit</a>
+        </div>
+            <div class="section">
+                Bookmarks
+                <ul id="bookmarks">
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                    <a href="../bookmarks/show.html"><li><img src="../media/img/linkthumb.jpg"></img></li></a>    
+                </ul>
+                <a href="../bookmarks/new.html">New Bookmark</a>
+                <a href="../bookmarks/edit.html">Edit Bookmark</a>
+            </div>
+            <div class="section">
+                Following
+                <ul id="following">
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                </ul>
                 <a href="joe_user/following.html">more</a>
-            </ul>
-            Followers
-            <ul id="followers">
-                <li>two tooth timmy</li>
-                <li>joe dirt</li>
-                <li>clark kent</li>
-                <li>...</li>
-                <a href="joe_user/followers.html">more</a>
-            </ul>
+            </div>
+            <div class="section">
+                Followers
+                <ul id="followers">
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                    <a href="../users/joe_user.html"><li><img src="../media/img/followthumb.jpg"></img></li></a>
+                </ul>    
+                <a href="joe_user/followers.html">more</a>    
+            </div>
             {{if logged in as user}}
                 show edit button
             {{else}}
