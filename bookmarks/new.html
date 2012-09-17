@@ -7,7 +7,7 @@
     </head>
     <body>
         <header>
-            <a href="index.html"><h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1></a>
+            <a href="../index.html"><h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1></a>
             </div>
             <ul id="nav">
                 <li><a href="" id="login">Login</a></li>|
@@ -37,8 +37,29 @@
             </form>
         </div>
         <div id="main">
-            <h1>Test</h1>
-            <p>jkhlkjhdskjafsjdkfhjsdkhfjksdhflkjshdfkj</p>
+            <div class="section">
+                <h1>New Bookmark</h1>
+                <form action="" method="get">
+                    <label>url</label><input type="text" name="url" size="60">
+                    <label>title</label><input type="text" name="title" size="60">
+                    <label>notes</label><textarea name="notes" rows="10" cols="43"></textarea>
+                    <label>tags</label><input type="text" name="tags" size="60">
+                    <label>rating</label><select name="rating">
+                        <option value="0.5">0.5</option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="5">5</option>
+                    </select>
+                    <label>Public?</label><input type="checkbox" name="public">
+                    <input type="submit" value="Save">
+                </form>
+            </div>
         </div>
         <footer>&copy; Tim Whitaker 2012</footer>
     </body>
