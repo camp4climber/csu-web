@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+require 'open-uri'
+require 'json'
+
+puts 'Content-type: text/html'
+puts
+json = ''
+photo_array = []
+open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=3ac5fd12647bb4ac8eaf424b0a62a907&per_page=20&format=json&nojsoncallback=1") {|f| json = f.read}
+json_parsed = JSON.parse(json)
+json_parsed["photos"]["photo"].each do |ele|
+    photo_array << "http://farm#{ele["farm"]}.staticflickr.com/#{ele["server"]}/#{ele["id"]}_#{ele["secret"]}_n.jpg"
+end
+puts '<!DOCTYPE html>'
+puts '<html>'
+puts '    <head>'
+puts '        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>'
+puts '        <script src="../media/js/login_register.js"></script>'
+puts '        <link rel="stylesheet" type="text/css" href="../media/css/style.css">'
+puts '    </head>'
+puts '    <body>'
+puts '        <header>'
+puts '            <a href="../index.html"><h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1></a>'
+puts '            </div>'
+puts '            <ul id="nav">'
+puts '                <li><a href="" id="login">Login</a></li>|'
+puts '                <li><a href="" id="register">Register</a></li>'
+puts '            </ul>'
+puts '        </header>'
+puts '        <div id="login_popup" class="hidden">'
+puts '            <span class="close"><a href="">x</a></span>'
+puts '            <h6>Login</h6>'
+puts '            <form action="users/joe_user.html" method="get">'
+puts '                <input type="text" name="username" placeholder="username">'
+puts '                <input type="password" name="password" placeholder="password">'
+puts '                <input type="submit" value="Login">'
+puts '            </form>'
+puts '        </div>'
+puts '        <div id="register_popup" class="hidden">'
+puts '            <span class="close"><a href="">x</a></span>'
+puts '            <h6>Register</h6>'
+puts '            <form action="users/joe_user.html" method="get">'
+puts '                <input type="text" name="username" placeholder="username">'
+puts '                <input type="password" name="password" placeholder="password">'
+puts '                <input type="password" name="confirm_pass" placeholder="confirm password">'
+puts '                <input type="email" name="email" placeholder="email">'
+puts '                <input type="text" name="fname" placeholder="first name">'
+puts '                <input type="text" name="lname" placeholder="last name">'
+puts '                <input type="submit" value="Register">'
+puts '            </form>'
+puts '        </div>'
+puts '        <div id="main">'
+puts '            <h1>Flickr of Ruby</h1>'
+puts '            <div class="section">'
+puts '                <ul id="flickr_gal">'
+photo_array.each do |ele|
+    puts "<li><a href=\"#{ele}\"><img src=\"#{ele}\"></img></a></li>"
+end
+puts '                </ul>'
+puts '            </div>'  
+puts '        </div>'
+puts '        <footer>&copy; Tim Whitaker 2012</footer>'
+puts '    </body>'
+puts '</html>'

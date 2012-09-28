@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anchor</title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1></a>
+        <ul id="nav">
+            <li><a href="" id="login">Login</a></li>|
+            <li><a href="" id="register">Register</a></li>
+        </ul>
+    </header>
+    <div id="main">
+
+        <%= yield %>
+    </div>
+    <footer><span class="red_accent">&copy; Tim Whitaker 2012</span></footer>
+</body>
+</html>

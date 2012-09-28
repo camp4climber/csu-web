@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script src="media/js/login_register.js"></script>
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1></a>
+            </div>
+            <ul id="nav">
+                <li><a href="" id="login">Login</a></li>|
+                <li><a href="" id="register">Register</a></li>
+            </ul>
+        </header>
+        <div id="login_popup" class="hidden">
+            <span class="close"><a href="">x</a></span>
+            <h6>Login</h6>
+            <form action="users/joe_user.html" method="get">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="register_popup" class="hidden">
+            <span class="close"><a href="">x</a></span>
+            <h6>Register</h6>
+            <form action="users/joe_user.html" method="get">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="password" name="confirm_pass" placeholder="confirm password">
+                <input type="email" name="email" placeholder="email">
+                <input type="text" name="fname" placeholder="first name">
+                <input type="text" name="lname" placeholder="last name">
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div id="main">
+            <div class="section">
+                <h1>anchor.io</h1>
+                <form action="" method="get">
+                    <label>url</label><input type="text" name="url" value="http://www.anchor.io" size="60">
+                    <label>title</label><input type="text" name="title" value="anchor.io" size="60">
+                    <label>notes</label><textarea name="notes" rows="10" cols="43">No one in Weybridge could tell us where the headquarters were established; the whole place was in such confusion as I had never seen in any town before. Carts, carriages everywhere, the most astonishing miscellany of conveyances and horseflesh. The respectable inhabitants of the place, men in golf and boating costumes, wives prettily dressed, were packing, river-side loafers energetically helping, children excited, and, for the most part, highly delighted at this astonishing variation of their Sunday experiences. In the midst of it all the worthy vicar was very pluckily holding an early celebration, and his bell was jangling out above the excitement.</textarea>
+                    <label>tags</label><input type="text" name="tags" value="Coolest, Website, Ever, Chico, Anchor, Bookmarks, Tags" size="60">
+                    <label>rating</label><select name="rating">
+                        <option value="0.5">0.5</option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="5">5</option>
+                    </select>
+                    <label>Public?</label><input type="checkbox" name="public" value="1">
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+        <footer>&copy; Tim Whitaker 2012</footer>
+    </body>
+</html>
