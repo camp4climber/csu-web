@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Anchor::Application.config.secret_token = 'cbfaa50afb909e09a2f0ddcc9c67c002aa45d3fa9768224583d0ca9037a85f91d137b00cf554e2eb32979a832a0ea301c2cf0a3f62671793aed653b3b9e90070'
+Anchor::Application.config.secret_token = '71a1b6a71ff3844172dc8fd252c81a864dab795f25b6697aadcd90e3b824afda50d7b370977e9bc631209ac825a80287ae9c0c42b9f18336c16666bd2ab81b3f'
