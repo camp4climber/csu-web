@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
     private
 
     def all_bookmarks
-        [{:url => "http://www.google.com", :title => "Google", :notes => "awesome search", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => {"Anchor", "Chico"}, :rating => "4.5", :public =>"#"},
-         {:url => "http://www.amazon.com", :title => "Amazon", :notes => "awesome goods", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => {"Awesome", "Art"}, :rating => "3", :public =>"\""}]
+        [{:url => "http://www.google.com", :title => "Google", :notes => "awesome search", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => ["Anchor", "Chico"], :rating => "4.5", :public =>"#"},
+         {:url => "http://www.amazon.com", :title => "Amazon", :notes => "awesome goods", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => ["Awesome", "Art"], :rating => "3", :public =>"\""}]
     end
 end
