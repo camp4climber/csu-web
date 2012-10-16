@@ -17,28 +17,6 @@
                 <li><%= link_to "Register", signup_path %></li>
             </ul>
         </header>
-        <div id="login_popup" class="hidden">
-            <span class="close"><a href="">X</a></span>
-            <h6>Login</h6>
-            <form action="users/joe_user.html" method="get">
-                <input type="text" name="username" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="submit" value="Login">
-            </form>
-        </div>
-        <div id="register_popup" class="hidden">
-            <span class="close"><a href="">X</a></span>
-            <h6>Register</h6>
-            <form action="users/joe_user.html" method="get">
-                <input type="text" name="username" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="password" name="confirm_pass" placeholder="confirm password">
-                <input type="email" name="email" placeholder="email">
-                <input type="text" name="fname" placeholder="first name">
-                <input type="text" name="lname" placeholder="last name">
-                <input type="submit" value="Register">
-            </form>
-        </div>
         <div id="main">
             <%= flash[:alert] %>
             <%= yield %>
