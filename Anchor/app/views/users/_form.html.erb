@@ -1,0 +1,15 @@
+<div class="section">
+    <%= form_for :user, form_options do |u| %>
+        <%= u.label :username, "username" %>
+        <%= u.text_field :username, :required => true %>
+        <%= u.label :password, "password" %>
+        <%= u.text_field :password, :required => true %>
+        <%= u.label :email, "email" %>
+        <%= u.email_field :email, :required => true %>
+        <%= u.label :first_name, "first name" %>
+        <%= u.text_field :first_name, :required => true %>
+        <%= u.label :last_name, "last name" %>
+        <%= u.text_field :last_name, :required => true %>
+        
+        <%= submit_tag %>
+    <% end %>

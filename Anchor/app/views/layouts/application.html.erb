@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Anchor</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <%= stylesheet_link_tag "application" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <header>
+            <%= link_to bookmarks_path do %>
+                <h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1>
+            <% end %>
+            <ul id="nav">
+<!-- LOOK AT THESE NEXT 2 LINES -->
+                <li><%= link_to "Login", user_path(0) %></li>|
+                <li><%= link_to "Register", signup_path %></li>
+            </ul>
+        </header>
+        <div id="login_popup" class="hidden">
+            <span class="close"><a href="">X</a></span>
+            <h6>Login</h6>
+            <form action="users/joe_user.html" method="get">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="register_popup" class="hidden">
+            <span class="close"><a href="">X</a></span>
+            <h6>Register</h6>
+            <form action="users/joe_user.html" method="get">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="password" name="confirm_pass" placeholder="confirm password">
+                <input type="email" name="email" placeholder="email">
+                <input type="text" name="fname" placeholder="first name">
+                <input type="text" name="lname" placeholder="last name">
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div id="main">
+            <%= flash[:alert] %>
+            <%= yield %>
+        </div>
+        <footer><span class="red_accent">&copy; Tim Whitaker 2012</span></footer>
+    </body>
 </html>

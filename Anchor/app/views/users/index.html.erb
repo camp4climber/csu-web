@@ -1,0 +1,16 @@
+<div class="section">
+    <ul class="users">
+        <% @users.each_with_index do |user, index| %>
+            <li>
+                <%= link_to user_path(index) do %>
+                    <%= user[:username] %>
+                    <%= user[:email] %>
+                    <%= user[:first_name] %>
+                    <%= user[:last_name] %>
+                <% end %>
+                <%= link_to "Edit User", edit_user_path(index) %>
+            </li>
+        <% end %>
+    </ul>
+    <%= link_to "New User", new_user_path %>
+</div>
