@@ -23,9 +23,7 @@
             </li>
             <li><p><%= @bookmark[:notes] %></p></li>
             <li>
-                <% @bookmark[:tags].each do |t| %>
-                    <%= t.join(", ") %>
-                <% end %>
+                <%= @bookmark[:tags] %>
             </li>
     </ul>
     <%= link_to "Edit Bookmark", edit_bookmark_path(params[:id]) %>
