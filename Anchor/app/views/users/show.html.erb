@@ -13,7 +13,15 @@
             <li>
                 <%= link_to b.title, bookmark_url(b.id) %>
                 <%= b.notes %>
-                <%= b.rating %>
+                <% (0..4).each do |i| %>
+                    <% if b.rating.to_f-i <= 0 %>
+                        <%= image_tag "star_empty.gif" %>
+                    <% elsif b.rating.to_f-i >= 1 %>
+                        <%= image_tag "star_full.gif" %>
+                    <% else %>
+                        <%= image_tag "star_half.gif" %>
+                    <% end %>
+                <% end %>
                 <%= link_to "Visit", b.url %>
                 <%= link_to "Edit", edit_bookmark_path(b.id, :user_id => params[:id]) %>
                 <%= link_to "Destroy", b, :method => :delete %>
