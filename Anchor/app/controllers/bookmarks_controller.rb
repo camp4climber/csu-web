@@ -1,30 +1,49 @@
 class BookmarksController < ApplicationController
-    def index
-        @bookmarks = all_bookmarks
-    end
+    
     def create
-        redirect_to bookmarks_url, :alert => "Created Successfully"
+        @bookmark = Bookmark.new(params[:bookmark])
+        @user = User.find(params[:bookmark][:user_id])
+
+        if @bookmark.save
+            redirect_to @user, :alert => "Created Successfully"
+        else
+            redirect_to :back #fix this later
+        end
     end
+    
     def new
-        render :template => "bookmarks/new.html.erb"
+        @bookmark = Bookmark.new
     end
+    
     def edit
-        render :template => "bookmarks/edit.html.erb"
+        @bookmark = Bookmark.find(params[:id])
     end
+    
     def show
-        @bookmark = all_bookmarks[params[:id].to_i]
+        @bookmark = Bookmark.find(params[:id])
+        @bookmark.view
+        @tags = Tag.all
+        @tagging = Tagging.new
     end
+    
     def update
-        redirect_to bookmark_url(params[:id]), :alert => "Updated Successfully"
+        @bookmark = Bookmark.find(params[:id])
+
+        if @bookmark.update_attributes(params[:photo])
+            redirect_to @bookmark, :alert => "Updated Bookmark"
+        else
+            render "edit"
+        end
     end
+    
     def destroy
-        redirect_to bookmarks_url, :alert => "Deleted Bookmark"
+        @bookmark = Bookmark.find(params[:id])
+        @bookmark.destroy
+        redirect_to popular_bookmarks_url, :alert => "Bookmark Destroyed" #to user page?
+    end
+    
+    def popular
+        @bookmarks = Bookmark.order("views DESC").limit(15)
     end
 
-    private
-
-    def all_bookmarks
-        [{:url => "http://www.google.com", :title => "Google", :notes => "awesome search", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => ["Anchor", "Chico"], :rating => "4.5", :public =>"#"},
-         {:url => "http://www.amazon.com", :title => "Amazon", :notes => "awesome goods", :screenthumb => "linkthumb.jpg", :screenshot => "anchorscreenshot.png", :tags => ["Awesome", "Art"], :rating => "3", :public =>"\""}]
-    end
 end

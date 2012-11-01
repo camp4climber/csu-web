@@ -1,0 +1,19 @@
+<h1>Popular Bookmarks</h1>
+
+<ul>
+    <% @bookmarks.each do |b| %>
+        <li>
+            <%= link_to b.title, b %>
+            <% (0..4).each do |i| %>
+                <% if b.rating.to_f-i <= 0 %>
+                    <%= image_tag "star_empty.gif" %>
+                <% elsif b.rating.to_f-i >= 1 %>
+                    <%= image_tag "star_full.gif" %>
+                <% else %>
+                    <%= image_tag "star_half.gif" %>
+                <% end %>
+            <% end %>
+            Views: <%= b.views %>
+        </li>
+    <% end %>
+</ul>

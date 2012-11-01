@@ -2,16 +2,22 @@
     <ul>
         <li><h1><span data-icon="<%= @bookmark[:public] %>" aria-hidden="true"></span> <%= link_to @bookmark[:title], bookmark_path(params[:id]) %></h1></li>
         <li><%= link_to @bookmark[:url], @bookmark[:url] %></li>
-        <li>
-            <%= link_to @bookmark[:url] do %>
-                <%= image_tag @bookmark[:screenshot], :class => "screenshot" %>
-            <% end %>
-        </li>
 	    <li><%= @bookmark[:rating] %></li>
         <li><p><%= @bookmark[:notes] %></p></li>
-        <li><%= @bookmark[:tags].join(", ") %></li>
+        <li>Views: <%= @bookmark[:views] %></li>
+        <li>Tags: 
+        <% @tags.each do |t| %>
+            <%= link_to t.name, tag_path(t.id) %> <%= link_to "x", bookmark_tagging_path(:bookmark_id => @bookmark.id, :id => t.id), :method => :delete %>
+        <% end %>
+        </li>
+        <li>
+            <%= form_tag bookmark_taggings_path(params[:id]) do %>
+                New tag: <%= text_field_tag :name %>
+                <%= submit_tag %>
+            <% end %>
+        </li>
     </ul>
     <%= link_to "Edit Bookmark", edit_bookmark_path(params[:id]) %>
-    <%= link_to "Delete Bookmark", "bookmark#destroy", :method => "delete" %>
+    <%= link_to "Delete Bookmark", @bookmark, :method => "delete" %>
 </div>
 <%= link_to "New Bookmark", new_bookmark_path %>

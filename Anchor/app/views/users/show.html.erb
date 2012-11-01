@@ -1,11 +1,24 @@
 <div class="section">
     <ul id="user_info">
         <li><%= @user[:username] %></li>
-        <li><%= image_tag @user[:avatar] %></li>
         <li><%= @user[:email] %></li>
-        <li><%= @user[:first_name] %> <%= @user[:last_name] %></li>
+        <li><%= @user.f_name %> <%= @user.l_name %></li>
         <li><%= link_to "Edit User", edit_user_path(params[:id]) %></li>
-        <li><%= link_to "Delete User", "user#destroy", :method => "delete" %></li>
     </ul>
 </div>
-<%= link_to "New User", new_user_path %>
+<div class="section">    
+    <ul id="bookmarks">
+        <% @bookmarks.each do |b| %>
+            <li>
+                <%= link_to b.title, bookmark_url(b.id) %>
+                <%= b.notes %>
+                <%= b.rating %>
+                <%= link_to "Visit", b.url %>
+                <%= link_to "Edit", edit_bookmark_path(b.id, :user_id => params[:id]) %>
+                <%= link_to "Destroy", b, :method => :delete %>
+            </li>
+            <%= link_to "Create Bookmark", new_bookmark_path(:user_id => params[:id]) %>
+        <% end %>
+    </ul>
+</div>
+<%= link_to "New User", "/signup" %>

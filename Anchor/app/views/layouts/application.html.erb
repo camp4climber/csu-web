@@ -8,19 +8,17 @@
     </head>
     <body>
         <header>
-            <%= link_to bookmarks_path do %>
+            <%= link_to "/" do %>
                 <h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1>
             <% end %>
             <ul id="nav">
-<!-- LOOK AT THESE NEXT 2 LINES -->
-                <li><%= link_to "Login", user_path(0) %></li>|
+                <li><%= link_to "Login (Not implemented yet.)" %></li>|
                 <li><%= link_to "Register", signup_path %></li>
             </ul>
         </header>
         <div id="main">
-            <%= flash[:alert] %>
             <%= yield %>
         </div>
-        <footer><span class="red_accent">&copy; Tim Whitaker 2012</span></footer>
+        <footer><span class="red_accent">&copy; Tim Whitaker 2012</span> <%= flash[:alert] %></footer>
     </body>
 </html>
