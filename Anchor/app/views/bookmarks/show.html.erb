@@ -23,8 +23,8 @@
             <% end %>          
         </li>
         <li>Tags: 
-        <% @tags.each do |t| %>
-            <%= link_to t, tag_path(t.tag_id) %> <%= link_to "x", bookmark_tagging_path(:bookmark_id => @bookmark.id, :id => t.tag_id), :method => :delete %>
+        <% @taggings.each do |t| %>
+            <%= link_to t.get_tag.name, tag_path(t.get_tag) %> <%= link_to "Delete", bookmark_tagging_path(:bookmark_id => @bookmark.id, :id => t.tag_id), :method => :delete %>
         <% end %>
         </li>
         <li>

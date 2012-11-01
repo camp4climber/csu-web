@@ -1,12 +1,13 @@
 <div class="section">
     <ul id="user_info">
-        <li><%= @user[:username] %></li>
-        <li><%= @user[:email] %></li>
-        <li><%= @user.f_name %> <%= @user.l_name %></li>
+        <li><h1>Welcome <%= @user[:username] %>!</h1></li>
+        <li>Email: <%= @user[:email] %></li>
+        <li>Name: <%= @user.f_name %> <%= @user.l_name %></li>
         <li><%= link_to "Edit User", edit_user_path(params[:id]) %></li>
     </ul>
 </div>
-<div class="section">    
+<div class="section">   
+    <h1>Bookmarks</h1>
     <ul id="bookmarks">
         <% @bookmarks.each do |b| %>
             <li>
@@ -21,4 +22,5 @@
         <%= link_to "Create Bookmark", new_bookmark_path(:user_id => params[:id]) %>
     </ul>
 </div>
-<%= link_to "New User", "/signup" %>
+<%= link_to "Popular Bookmarks", :controller => :bookmarks, :action => :popular %> -
+<%= link_to "Tags", tags_path %>

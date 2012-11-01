@@ -25,8 +25,7 @@ class BookmarksController < ApplicationController
     
     def show
         @bookmark = Bookmark.find(params[:id])
-        @tags = Tagging.find_all_by_bookmark_id(params[:id])
-        @tagging = Tagging.new
+        @taggings = Tagging.find_all_by_bookmark_id(params[:id])
     end
     
     def update

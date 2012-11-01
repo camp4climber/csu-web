@@ -1,1 +1,8 @@
-tags show
+<h1><%= @tag.name %></h1>
+
+<ul>
+    Bookmarks
+    <% @taggings.each do |t| %>
+        <li><%= link_to t.get_bookmark.title, bookmark_path(t.bookmark_id) %></li>
+    <% end %>
+</ul>
