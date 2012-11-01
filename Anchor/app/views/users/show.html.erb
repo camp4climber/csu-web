@@ -17,8 +17,8 @@
                 <%= link_to "Edit", edit_bookmark_path(b.id, :user_id => params[:id]) %>
                 <%= link_to "Destroy", b, :method => :delete %>
             </li>
-            <%= link_to "Create Bookmark", new_bookmark_path(:user_id => params[:id]) %>
         <% end %>
+        <%= link_to "Create Bookmark", new_bookmark_path(:user_id => params[:id]) %>
     </ul>
 </div>
 <%= link_to "New User", "/signup" %>

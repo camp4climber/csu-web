@@ -1,13 +1,30 @@
 <div class="section">
     <ul>
-        <li><h1><span data-icon="<%= @bookmark[:public] %>" aria-hidden="true"></span> <%= link_to @bookmark[:title], bookmark_path(params[:id]) %></h1></li>
+        <li><h1><%= link_to @bookmark[:title], bookmark_path(params[:id]) %></h1></li>
         <li><%= link_to @bookmark[:url], @bookmark[:url] %></li>
-	    <li><%= @bookmark[:rating] %></li>
-        <li><p><%= @bookmark[:notes] %></p></li>
+	    <li>
+            <% (0..4).each do |i| %>
+                <% if @bookmark.rating.to_f-i <= 0 %>
+                    <%= image_tag "star_empty.gif" %>
+                <% elsif @bookmark.rating.to_f-i >= 1 %>
+                    <%= image_tag "star_full.gif" %>
+                <% else %>
+                    <%= image_tag "star_half.gif" %>
+               <% end %>
+            <% end %>
+        </li>
+        <li><%= @bookmark[:notes] %></li>
         <li>Views: <%= @bookmark[:views] %></li>
+        <li>
+            <% if @bookmark[:public] == true %>
+                Public!
+            <% else %> 
+                Private!
+            <% end %>          
+        </li>
         <li>Tags: 
         <% @tags.each do |t| %>
-            <%= link_to t.name, tag_path(t.id) %> <%= link_to "x", bookmark_tagging_path(:bookmark_id => @bookmark.id, :id => t.id), :method => :delete %>
+            <%= link_to t, tag_path(t.tag_id) %> <%= link_to "x", bookmark_tagging_path(:bookmark_id => @bookmark.id, :id => t.tag_id), :method => :delete %>
         <% end %>
         </li>
         <li>

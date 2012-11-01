@@ -1,5 +1,13 @@
 <div class="section">
     <%= form_for :bookmark, form_options do |b| %>
+        <% if @bookmark.errors.any? %>
+            <%= pluralize(@bookmark.errors.size, "error") %>
+            <ul>
+                <% @bookmark.errors.full_messages.each do |e| %>
+                    <li><%= e %> </li>
+                <% end %>
+            </ul>
+         <% end %>
         <%= b.label :url, "url" %>
         <%= b.text_field :url, :required => true %>
         <%= b.label :title, "title" %>

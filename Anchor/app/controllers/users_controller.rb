@@ -5,13 +5,13 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to @user, :alert => "Created Successfully"
         else
-            render "users#new"
+            render "users/new"
         end
     end
-    
+
     def new
         @user = User.new
-        render :template => "users/new.html.erb"
+        render "users/new"
     end
     
     def edit

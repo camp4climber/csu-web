@@ -1,5 +1,13 @@
 <div class="section">
     <%= form_for :user, form_options do |u| %>
+        <% if @user.errors.any? %>
+            <%= pluralize(@user.errors.size, "error") %>
+            <ul>
+                <% @user.errors.full_messages.each do |e| %>
+                    <li><%= e %> </li>
+                <% end %>
+            </ul>
+        <% end %>
         <%= u.label :username, "username" %>
         <%= u.text_field :username, :required => true %>
         <%= u.label :password, "password" %>

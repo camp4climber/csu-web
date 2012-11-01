@@ -3,12 +3,16 @@ class BookmarksController < ApplicationController
     def create
         @bookmark = Bookmark.new(params[:bookmark])
         @user = User.find(params[:bookmark][:user_id])
+        
+        if @bookmark.url[0..6] != "http://" or @bookmark.url[0..7] != "https://" 
+            @bookmark.url = "http://" + @bookmark.url
+        end
 
         if @bookmark.save
             redirect_to @user, :alert => "Created Successfully"
         else
-            redirect_to :back #fix this later
-        end
+            render "bookmarks/new" 
+        end                        
     end
     
     def new
@@ -21,8 +25,7 @@ class BookmarksController < ApplicationController
     
     def show
         @bookmark = Bookmark.find(params[:id])
-        @bookmark.view
-        @tags = Tag.all
+        @tags = Tagging.find_all_by_bookmark_id(params[:id])
         @tagging = Tagging.new
     end
     
