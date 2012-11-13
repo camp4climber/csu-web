@@ -2,6 +2,6 @@
     <%= image_tag "anchorbanner.png" %>
 </div>
 
-<p>Welcome to <a href="index.html">anchor.io</a>. The internet is massive. With millions of people all over the world putting up new web pages everyday, it can get overwhelming. Don't worry, <a href="index.html">anchor.io</a> is here to help. We make it easy for you to bookmark and keep track of your favorite links, discover new and exciting links, and follow your friends.</p>
+<p>Welcome to <%= link_to "anchor.io", root_path %>. The internet is massive. With millions of people all over the world putting up new web pages everyday, it can get overwhelming. Don't worry, <%= link_to "anchor.io", root_path %> is here to help. We make it easy for you to bookmark and keep track of your favorite links, discover new and exciting links, and follow your friends.</p>
 
 <p>Check out the <%= link_to "Popular Bookmarks", :controller => :bookmarks, :action => :popular %> or search by <%= link_to "tags", :controller => :tags, :action => :index %>.</p>
