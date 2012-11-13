@@ -26,7 +26,7 @@
         <div id="main">
             <%= yield %>
         </div>
-        <footer><span class="red_accent">&copy; Tim Whitaker 2012</span> <%= flash[:alert] %></footer>
+        <footer><span class="red_accent">&copy; Tim Whitaker 2012</span> <span class="flash"><%= flash[:alert] %></span></footer>
         <% unless @current_user %>
             <%= form_for :session, :url => sessions_path, :html => {:id => "login_popup", :class => "hidden"} do |s| %>
                 <%= s.text_field :username, :placeholder => "username" %>
