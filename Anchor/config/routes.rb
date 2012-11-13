@@ -10,4 +10,7 @@ Anchor::Application.routes.draw do
 
     root :to => "public_pages#home"
     match "/signup" => "users#new"
+    match "/login" => "sessions#new"
+    match "/logout" => "sessions#destroy"
+    match "/sessions" => "sessions#create", :via => :post
 end

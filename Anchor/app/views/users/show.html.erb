@@ -1,12 +1,15 @@
 <div class="section">
     <ul id="user_info">
-        <li><h1>Welcome <%= @user[:username] %>!</h1></li>
+        <li><h1><%= @user[:username] %></h1></li>
         <li>Email: <%= @user[:email] %></li>
         <li>Name: <%= @user.f_name %> <%= @user.l_name %></li>
-        <li><%= link_to "Edit User", edit_user_path(params[:id]) %></li>
+        <% if @current_user.id == params[:id].to_i %>
+            <li><%= link_to "Edit User", edit_user_path(params[:id]) %></li>
+        <% end %>
     </ul>
 </div>
-<div class="section">   
+<% if @current_user.id == params[:id].to_i %>
+    <div class="section">
     <h1>Bookmarks</h1>
     <ul id="bookmarks">
         <% @bookmarks.each do |b| %>
@@ -23,12 +26,13 @@
                     <% end %>
                 <% end %>
                 <%= link_to "Visit", b.url %>
-                <%= link_to "Edit", edit_bookmark_path(b.id, :user_id => params[:id]) %>
+                <%= link_to "Edit", edit_bookmark_path(b.id, :user_id => @current_user.id) %>
                 <%= link_to "Destroy", b, :method => :delete %>
             </li>
         <% end %>
-        <%= link_to "Create Bookmark", new_bookmark_path(:user_id => params[:id]) %>
+        <%= link_to "Create Bookmark", new_bookmark_path(:user_id => @current_user.id) %>
     </ul>
-</div>
+    </div>
+<% end %>
 <%= link_to "Popular Bookmarks", :controller => :bookmarks, :action => :popular %> -
 <%= link_to "Tags", tags_path %>

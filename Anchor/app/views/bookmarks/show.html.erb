@@ -34,7 +34,9 @@
             <% end %>
         </li>
     </ul>
-    <%= link_to "Edit Bookmark", edit_bookmark_path(params[:id]) %>
-    <%= link_to "Delete Bookmark", @bookmark, :method => "delete" %>
+    <% if @current_user.id == @bookmark.user_id %>
+        <%= link_to "Edit Bookmark", edit_bookmark_path(params[:id]) %>
+        <%= link_to "Delete Bookmark", @bookmark, :method => "delete" %>
+    <% end %>
 </div>
-<%= link_to "New Bookmark", new_bookmark_path %>
+<%= link_to "Popular Bookmarks", popular_bookmarks_path %>

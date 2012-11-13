@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         @user = User.new(params[:user])
 
         if @user.save
-            redirect_to @user, :alert => "Created Successfully"
+            redirect_to :back, :alert => "Created successfully!"
         else
             render "users/new"
         end

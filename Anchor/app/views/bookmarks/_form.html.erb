@@ -18,7 +18,7 @@
         <%= b.select :rating, options_for_select([[0,0],[0.5,0.5],[1,1],[1.5,1.5],[2,2],[2.5,2.5],[3,3],[3.5,3.5],[4,4],[4.5,4.5],[5,5]]) %> 
         <%= b.label :public, "public" %>
         <%= b.check_box :public %>
-        <%= b.hidden_field :user_id, :value => params[:user_id] %>
+        <%= b.hidden_field :user_id, :value => @current_user.id %>
         
         <%= submit_tag %>
     <% end %>

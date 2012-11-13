@@ -12,13 +12,34 @@
                 <h1 class="red_accent">&#60;<span class="gold_accent">a</span>&#62;nchor.io</h1>
             <% end %>
             <ul id="nav">
-                <li><%= link_to "Login (Not implemented yet.)" %></li>|
-                <li><%= link_to "Register", signup_path %></li>
+                <% unless @current_user %>
+                    <li><%= link_to "Login", "/#", :class => "login" %></li>|
+                    <li><%= link_to "Register", "/#", :class => "register" %></li>
+                <% else %>
+                    <li>Welcome <%= link_to @current_user.username, user_path(@current_user.id) %>!</li>
+                    <li><%= link_to "Logout", :controller => :sessions, :action => :destroy, :method => :delete %></li>
+                <% end %>
             </ul>
         </header>
         <div id="main">
             <%= yield %>
         </div>
         <footer><span class="red_accent">&copy; Tim Whitaker 2012</span> <%= flash[:alert] %></footer>
+        <% unless @current_user %>
+            <%= form_for :session, :url => sessions_path, :html => {:id => "login_popup", :class => "hidden"} do |s| %>
+                <%= s.text_field :username, :placeholder => "username" %>
+                <%= s.password_field :password, :placeholder => "password" %>
+                <%= submit_tag %>
+            <% end %>
+            <%= form_for @new_user, :html => {:id => "register_popup", :class => "hidden"} do |u| %>
+                <%= u.text_field :username, :placeholder => "username" %>
+                <%= u.text_field :email, :placeholder => "email" %>
+                <%= u.password_field :password, :placeholder => "password" %>
+                <%= u.password_field :password_confirmation, :placeholder => "confirm password" %>
+                <%= u.text_field :f_name, :placeholder => "first name" %>
+                <%= u.text_field :l_name, :placeholder => "last name" %>
+                <%= submit_tag %>
+            <% end %>
+        <% end %>
     </body>
 </html>

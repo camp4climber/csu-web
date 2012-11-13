@@ -2,7 +2,7 @@
 <ul>
     <% @tags.each do |t| %>
         <li>
-            <%= link_to t.name, tag_path(t.id) %> <%= link_to "Delete", bookmark_tagging_path(:bookmark_id => @bookmark.id, :tag_id => t.id), :method => :delete %>
+            <%= link_to t.name, t %>
         </li>
     <% end %>
 </ul>

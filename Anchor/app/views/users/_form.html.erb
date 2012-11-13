@@ -11,7 +11,9 @@
         <%= u.label :username, "username" %>
         <%= u.text_field :username, :required => true %>
         <%= u.label :password, "password" %>
-        <%= u.text_field :password, :required => true %>
+        <%= u.password_field :password, :required => true %>
+        <%= u.label :password_confirmation, "password confirmation" %>
+        <%= u.password_field :password_confirmation, :required => true %>
         <%= u.label :email, "email" %>
         <%= u.email_field :email, :required => true %>
         <%= u.label :f_name, "first name" %>
