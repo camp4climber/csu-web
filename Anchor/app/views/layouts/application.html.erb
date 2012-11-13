@@ -17,6 +17,8 @@
                     <li><%= link_to "Register", "/#", :class => "register" %></li>
                 <% else %>
                     <li>Welcome <%= link_to @current_user.username, user_path(@current_user.id) %>!</li>
+                    <li><%= link_to "Popular Bookmarks", popular_bookmarks_path %></li>
+                    <li><%= link_to "Tags", tags_path %></li>
                     <li><%= link_to "Logout", :controller => :sessions, :action => :destroy, :method => :delete %></li>
                 <% end %>
             </ul>
